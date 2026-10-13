@@ -1,0 +1,1891 @@
+{
+  "organizations": [
+    {
+      "id": "org_acme",
+      "name": "Acme Enterprise Holdings",
+      "slug": "acme-corp",
+      "plan": "enterprise_pro",
+      "totalWorkflowsQuota": 100,
+      "monthlyBudget": 25000,
+      "createdAt": "2026-01-15T08:00:00Z",
+      "workspaces": [
+        {
+          "id": "ws_prod",
+          "orgId": "org_acme",
+          "name": "Production Operations",
+          "slug": "prod-ops",
+          "environment": "production",
+          "description": "Primary customer-facing automation cluster",
+          "agentCount": 8,
+          "workflowCount": 14
+        },
+        {
+          "id": "ws_staging",
+          "orgId": "org_acme",
+          "name": "Staging & Evaluation",
+          "slug": "staging-qa",
+          "environment": "staging",
+          "description": "Pre-flight testing and regression evaluation sandbox",
+          "agentCount": 4,
+          "workflowCount": 6
+        },
+        {
+          "id": "ws_autonomous",
+          "orgId": "org_acme",
+          "name": "Autonomous Agent Lab",
+          "slug": "autonomous-lab",
+          "environment": "sandbox",
+          "description": "Multi-agent emergent planning and simulation environment",
+          "agentCount": 6,
+          "workflowCount": 4
+        }
+      ]
+    },
+    {
+      "id": "org_cybershield",
+      "name": "CyberShield Defense Systems",
+      "slug": "cybershield",
+      "plan": "custom_sovereign",
+      "totalWorkflowsQuota": 250,
+      "monthlyBudget": 50000,
+      "createdAt": "2026-02-01T10:00:00Z",
+      "workspaces": [
+        {
+          "id": "ws_sec_prod",
+          "orgId": "org_cybershield",
+          "name": "SecOps Command",
+          "slug": "secops-prod",
+          "environment": "production",
+          "description": "Zero-trust automated threat remediation",
+          "agentCount": 10,
+          "workflowCount": 12
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": "usr_alex",
+      "name": "Alex Mercer",
+      "email": "alex.mercer@acme.corp",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150",
+      "role": "ai_architect",
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "department": "AI Systems Architecture"
+    },
+    {
+      "id": "usr_sarah",
+      "name": "Sarah Chen",
+      "email": "sarah.chen@acme.corp",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150",
+      "role": "org_owner",
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "department": "Executive Engineering"
+    },
+    {
+      "id": "usr_marcus",
+      "name": "Marcus Vance",
+      "email": "marcus.vance@acme.corp",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150",
+      "role": "approver",
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "department": "Risk & Governance"
+    },
+    {
+      "id": "usr_elena",
+      "name": "Elena Rostova",
+      "email": "elena.rostova@acme.corp",
+      "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150",
+      "role": "workflow_developer",
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "department": "Enterprise Automation"
+    },
+    {
+      "id": "usr_david",
+      "name": "David Kim",
+      "email": "david.kim@acme.corp",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150",
+      "role": "platform_admin",
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "department": "Cloud Infrastructure"
+    }
+  ],
+  "agents": [
+    {
+      "id": "agent_planner",
+      "name": "Nexus Planner Orchestrator",
+      "role": "planner",
+      "description": "Decomposes ambiguous operational objectives into bounded verifiable task graphs with dependency analysis.",
+      "avatarIcon": "BrainCircuit",
+      "modelProvider": "openai",
+      "modelName": "gpt-4o",
+      "temperature": 0.2,
+      "maxTokens": 4096,
+      "systemInstructions": "You are the Master Planner for NexusOps. Given business requirements, produce atomic, deterministic execution plans with strict error boundaries.",
+      "approvedTools": [
+        "query_knowledge_base",
+        "validate_json_schema",
+        "query_data_catalog"
+      ],
+      "memoryType": "task_only",
+      "status": "active",
+      "version": "2.4.0",
+      "evalScore": 98.4,
+      "totalRuns": 1420,
+      "usageCost": 142.8,
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "owner": "Alex Mercer",
+      "updatedAt": "2026-10-10T14:30:00Z"
+    },
+    {
+      "id": "agent_researcher",
+      "name": "Enterprise Knowledge Researcher",
+      "role": "researcher",
+      "description": "Performs semantic retrieval across authorized internal document corpuses with verbatim citation grounding.",
+      "avatarIcon": "Search",
+      "modelProvider": "anthropic",
+      "modelName": "claude-3-5-sonnet",
+      "temperature": 0.1,
+      "maxTokens": 4096,
+      "systemInstructions": "You extract precise facts from indexed enterprise knowledge documents. You must NEVER hallucinate or extrapolate beyond provided citations.",
+      "approvedTools": [
+        "query_knowledge_base",
+        "fetch_internal_wiki",
+        "read_compliance_docs"
+      ],
+      "memoryType": "conversation_window",
+      "status": "active",
+      "version": "1.9.0",
+      "evalScore": 99.1,
+      "totalRuns": 2890,
+      "usageCost": 265.4,
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "owner": "Alex Mercer",
+      "updatedAt": "2026-10-11T09:15:00Z"
+    },
+    {
+      "id": "agent_analyst",
+      "name": "FinOps & Data Analyst",
+      "role": "analyst",
+      "description": "Inspects numeric data, invoices, ledgers, and logs to identify anomalies, pricing discrepancies, and compliance deviations.",
+      "avatarIcon": "BarChart3",
+      "modelProvider": "openai",
+      "modelName": "gpt-4o",
+      "temperature": 0.1,
+      "maxTokens": 3000,
+      "systemInstructions": "Perform rigorous mathematical validation on invoices, compare against purchase order lines, and flag discrepancies exceeding $0.05.",
+      "approvedTools": [
+        "execute_sql_query",
+        "extract_invoice_fields",
+        "calculate_metrics"
+      ],
+      "memoryType": "task_only",
+      "status": "active",
+      "version": "2.1.0",
+      "evalScore": 97.8,
+      "totalRuns": 950,
+      "usageCost": 88.2,
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "owner": "Sarah Chen",
+      "updatedAt": "2026-10-12T16:20:00Z"
+    },
+    {
+      "id": "agent_extractor",
+      "name": "Schema Extraction Agent",
+      "role": "extractor",
+      "description": "Transforms unstructured PDF documents, emails, and tickets into strict validated JSON schemas.",
+      "avatarIcon": "FileSpreadsheet",
+      "modelProvider": "gemini",
+      "modelName": "gemini-1.5-pro",
+      "temperature": 0,
+      "maxTokens": 8192,
+      "systemInstructions": "Extract unstructured inputs into the designated JSON Schema. Any missing required fields must be represented as explicit nulls with reasoning.",
+      "approvedTools": [
+        "extract_invoice_fields",
+        "validate_json_schema"
+      ],
+      "memoryType": "task_only",
+      "status": "active",
+      "version": "3.0.1",
+      "evalScore": 99.4,
+      "totalRuns": 4320,
+      "usageCost": 198.5,
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "owner": "Elena Rostova",
+      "updatedAt": "2026-10-12T18:00:00Z"
+    },
+    {
+      "id": "agent_executor",
+      "name": "Safe Tool Executor",
+      "role": "executor",
+      "description": "Carries out authorized API requests, notifications, and updates with strict idempotency and parameter validation.",
+      "avatarIcon": "Terminal",
+      "modelProvider": "openai",
+      "modelName": "gpt-4o",
+      "temperature": 0,
+      "maxTokens": 2048,
+      "systemInstructions": "You invoke registered tools after verifying required arguments. For any high-risk side effect, verify that approval tokens are present.",
+      "approvedTools": [
+        "send_slack_notification",
+        "create_github_issue",
+        "update_crm_lead",
+        "execute_http_request"
+      ],
+      "memoryType": "task_only",
+      "status": "active",
+      "version": "2.0.0",
+      "evalScore": 99.8,
+      "totalRuns": 6100,
+      "usageCost": 310.2,
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "owner": "David Kim",
+      "updatedAt": "2026-10-13T06:00:00Z"
+    },
+    {
+      "id": "agent_reviewer",
+      "name": "Adversarial Output Reviewer",
+      "role": "reviewer",
+      "description": "Acts as a critical reviewer assessing AI drafted responses, extraction accuracy, and security guardrails.",
+      "avatarIcon": "ShieldAlert",
+      "modelProvider": "anthropic",
+      "modelName": "claude-3-5-sonnet",
+      "temperature": 0.1,
+      "maxTokens": 3000,
+      "systemInstructions": "Critique candidate outputs. Reject any output containing unvetted external links, sensitive PII leaks, or ungrounded claims.",
+      "approvedTools": [
+        "validate_json_schema",
+        "query_compliance_policy"
+      ],
+      "memoryType": "task_only",
+      "status": "active",
+      "version": "1.8.2",
+      "evalScore": 98.9,
+      "totalRuns": 3410,
+      "usageCost": 212,
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "owner": "Marcus Vance",
+      "updatedAt": "2026-10-12T11:45:00Z"
+    },
+    {
+      "id": "agent_compliance",
+      "name": "Governance & Policy Sentry",
+      "role": "compliance",
+      "description": "Enforces corporate policies, GDPR/SOC2 guardrails, risk tiering, and mandatory approval gates.",
+      "avatarIcon": "Lock",
+      "modelProvider": "anthropic",
+      "modelName": "claude-3-5-sonnet",
+      "temperature": 0,
+      "maxTokens": 2048,
+      "systemInstructions": "Verify that any workflow invoking financial transfers or external client communication possesses an explicit human sign-off record.",
+      "approvedTools": [
+        "check_approval_status",
+        "query_compliance_policy"
+      ],
+      "memoryType": "task_only",
+      "status": "active",
+      "version": "2.2.0",
+      "evalScore": 100,
+      "totalRuns": 1850,
+      "usageCost": 115.6,
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "owner": "Marcus Vance",
+      "updatedAt": "2026-10-13T04:20:00Z"
+    },
+    {
+      "id": "agent_coder",
+      "name": "Sandbox Code Synthesizer",
+      "role": "coder",
+      "description": "Generates isolated data transformation scripts, SQL queries, and validation regexes under sandbox security restrictions.",
+      "avatarIcon": "Code2",
+      "modelProvider": "openai",
+      "modelName": "gpt-4o",
+      "temperature": 0.1,
+      "maxTokens": 4096,
+      "systemInstructions": "Write pure functions for data reshaping and regex transformation. Do not write code attempting filesystem or network calls.",
+      "approvedTools": [
+        "validate_regex",
+        "format_json"
+      ],
+      "memoryType": "task_only",
+      "status": "active",
+      "version": "1.5.0",
+      "evalScore": 96.5,
+      "totalRuns": 820,
+      "usageCost": 74.3,
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "owner": "Elena Rostova",
+      "updatedAt": "2026-10-11T15:30:00Z"
+    },
+    {
+      "id": "agent_builder",
+      "name": "Workflow Graph Generator",
+      "role": "builder",
+      "description": "Translates plain-English automation prompts into valid NexusOps DAG workflow graphs with type-checked nodes and edge wiring.",
+      "avatarIcon": "Network",
+      "modelProvider": "openai",
+      "modelName": "gpt-4o",
+      "temperature": 0.2,
+      "maxTokens": 4096,
+      "systemInstructions": "Construct node graphs with appropriate triggers, extraction, classification, conditional routing, human approval gates, and notifications.",
+      "approvedTools": [
+        "validate_workflow_graph"
+      ],
+      "memoryType": "conversation_window",
+      "status": "active",
+      "version": "3.1.0",
+      "evalScore": 97.4,
+      "totalRuns": 640,
+      "usageCost": 92.1,
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "owner": "Alex Mercer",
+      "updatedAt": "2026-10-13T01:10:00Z"
+    },
+    {
+      "id": "agent_reporter",
+      "name": "Executive Briefing & SLA Reporter",
+      "role": "reporter",
+      "description": "Synthesizes multi-agent execution telemetry into clean markdown executive summaries and audit briefs.",
+      "avatarIcon": "FileText",
+      "modelProvider": "gemini",
+      "modelName": "gemini-1.5-pro",
+      "temperature": 0.2,
+      "maxTokens": 4096,
+      "systemInstructions": "Produce concise, actionable executive summaries with key metrics, exceptions, and highlighted risk items.",
+      "approvedTools": [
+        "send_slack_notification",
+        "render_markdown_report"
+      ],
+      "memoryType": "task_only",
+      "status": "active",
+      "version": "2.0.0",
+      "evalScore": 98.7,
+      "totalRuns": 1120,
+      "usageCost": 65.8,
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "owner": "Sarah Chen",
+      "updatedAt": "2026-10-12T20:45:00Z"
+    }
+  ],
+  "tools": [
+    {
+      "id": "tool_rag_query",
+      "name": "Query Knowledge Base",
+      "slug": "query_knowledge_base",
+      "description": "Performs semantic vector search against indexed enterprise documentation corpuses.",
+      "category": "ai_inference",
+      "riskLevel": "low",
+      "requiredIntegration": "knowledge_hub",
+      "inputSchema": {
+        "query": "string",
+        "topK": "number",
+        "minRelevance": "number"
+      },
+      "outputSchema": {
+        "citations": "array",
+        "excerpts": "array"
+      },
+      "timeoutMs": 5000,
+      "requiresApproval": false,
+      "rateLimitPerMin": 120,
+      "allowedAgentRoles": [
+        "planner",
+        "researcher",
+        "reviewer"
+      ],
+      "sideEffectDescription": "Read-only document lookup. Zero system modification."
+    },
+    {
+      "id": "tool_extract_invoice",
+      "name": "Extract Invoice Fields",
+      "slug": "extract_invoice_fields",
+      "description": "Parses accounts payable invoices to extract vendor, PO number, line items, taxes, and total amounts.",
+      "category": "ai_inference",
+      "riskLevel": "low",
+      "inputSchema": {
+        "documentBuffer": "string",
+        "currency": "string"
+      },
+      "outputSchema": {
+        "vendor": "string",
+        "poNumber": "string",
+        "totalAmount": "number",
+        "items": "array"
+      },
+      "timeoutMs": 8000,
+      "requiresApproval": false,
+      "rateLimitPerMin": 60,
+      "allowedAgentRoles": [
+        "extractor",
+        "analyst"
+      ],
+      "sideEffectDescription": "Deterministic structured extraction. Read-only."
+    },
+    {
+      "id": "tool_slack_notify",
+      "name": "Send Slack Notification",
+      "slug": "send_slack_notification",
+      "description": "Dispatches targeted rich block-kit notification to designated internal Slack channel or user.",
+      "category": "communication",
+      "riskLevel": "medium",
+      "requiredIntegration": "slack",
+      "inputSchema": {
+        "channel": "string",
+        "message": "string",
+        "priority": "string"
+      },
+      "outputSchema": {
+        "timestamp": "string",
+        "messageId": "string",
+        "ok": "boolean"
+      },
+      "timeoutMs": 4000,
+      "requiresApproval": false,
+      "rateLimitPerMin": 100,
+      "allowedAgentRoles": [
+        "executor",
+        "reporter"
+      ],
+      "sideEffectDescription": "Posts message visible to human workspace participants."
+    },
+    {
+      "id": "tool_github_issue",
+      "name": "Create GitHub Issue",
+      "slug": "create_github_issue",
+      "description": "Creates a tracked engineering defect or task with labels, milestones, and reproduction steps.",
+      "category": "api",
+      "riskLevel": "medium",
+      "requiredIntegration": "github",
+      "inputSchema": {
+        "repo": "string",
+        "title": "string",
+        "body": "string",
+        "labels": "array"
+      },
+      "outputSchema": {
+        "issueNumber": "number",
+        "issueUrl": "string"
+      },
+      "timeoutMs": 6000,
+      "requiresApproval": false,
+      "rateLimitPerMin": 40,
+      "allowedAgentRoles": [
+        "executor"
+      ],
+      "sideEffectDescription": "Modifies external repository issue tracker."
+    },
+    {
+      "id": "tool_execute_sql",
+      "name": "Execute Scoped SQL Query",
+      "slug": "execute_sql_query",
+      "description": "Executes read-only analytical queries against authorized warehouse tables.",
+      "category": "database",
+      "riskLevel": "medium",
+      "requiredIntegration": "postgresql",
+      "inputSchema": {
+        "query": "string",
+        "maxRows": "number"
+      },
+      "outputSchema": {
+        "rows": "array",
+        "rowCount": "number",
+        "executionMs": "number"
+      },
+      "timeoutMs": 10000,
+      "requiresApproval": false,
+      "rateLimitPerMin": 30,
+      "allowedAgentRoles": [
+        "analyst"
+      ],
+      "sideEffectDescription": "SELECT queries executed under read-only transaction isolation."
+    },
+    {
+      "id": "tool_update_crm",
+      "name": "Update CRM Record",
+      "slug": "update_crm_lead",
+      "description": "Updates customer lifecycle stage, ARR potential, and recent interaction notes in CRM.",
+      "category": "api",
+      "riskLevel": "high",
+      "requiredIntegration": "salesforce",
+      "inputSchema": {
+        "leadId": "string",
+        "fields": "object"
+      },
+      "outputSchema": {
+        "success": "boolean",
+        "recordId": "string"
+      },
+      "timeoutMs": 5000,
+      "requiresApproval": true,
+      "rateLimitPerMin": 30,
+      "allowedAgentRoles": [
+        "executor"
+      ],
+      "sideEffectDescription": "Modifies customer production records in external CRM."
+    },
+    {
+      "id": "tool_payout_dispatch",
+      "name": "Initiate Vendor Disbursement",
+      "slug": "trigger_payment_draft",
+      "description": "Stages a vendor payment order in ERP ledger pending dual-key authorization.",
+      "category": "finance",
+      "riskLevel": "critical",
+      "inputSchema": {
+        "vendorId": "string",
+        "amount": "number",
+        "currency": "string",
+        "invoiceId": "string"
+      },
+      "outputSchema": {
+        "paymentReference": "string",
+        "status": "string"
+      },
+      "timeoutMs": 10000,
+      "requiresApproval": true,
+      "rateLimitPerMin": 5,
+      "allowedAgentRoles": [
+        "executor"
+      ],
+      "sideEffectDescription": "Stages real monetary disbursement. Prohibited without multi-party governance approval."
+    },
+    {
+      "id": "tool_http_webhook",
+      "name": "Execute Secure HTTP Request",
+      "slug": "execute_http_request",
+      "description": "Makes authenticated REST API calls with signed headers and replay protection.",
+      "category": "api",
+      "riskLevel": "high",
+      "inputSchema": {
+        "url": "string",
+        "method": "string",
+        "headers": "object",
+        "body": "any"
+      },
+      "outputSchema": {
+        "status": "number",
+        "response": "any"
+      },
+      "timeoutMs": 15000,
+      "requiresApproval": true,
+      "rateLimitPerMin": 60,
+      "allowedAgentRoles": [
+        "executor"
+      ],
+      "sideEffectDescription": "Makes outbound HTTP requests to configured web endpoints."
+    }
+  ],
+  "integrations": [
+    {
+      "id": "int_slack",
+      "key": "slack",
+      "name": "Slack Enterprise Grid",
+      "category": "communication",
+      "description": "Direct channel notifications, incident swarming, and interactive approval buttons.",
+      "icon": "Slack",
+      "isConnected": true,
+      "authType": "oauth",
+      "credentialsConfigured": true,
+      "configuredBy": "David Kim",
+      "configuredAt": "2026-09-12T10:00:00Z",
+      "scopes": [
+        "chat:write",
+        "channels:read",
+        "reactions:write"
+      ],
+      "lastSyncAt": "2026-10-13T06:45:00Z",
+      "recentErrors": 0,
+      "endpointUrl": "https://slack.com/api"
+    },
+    {
+      "id": "int_github",
+      "key": "github",
+      "name": "GitHub Enterprise",
+      "category": "vcs",
+      "description": "Repository automation, pull request reviews, issue tracking, and release notes.",
+      "icon": "Github",
+      "isConnected": true,
+      "authType": "api_key",
+      "credentialsConfigured": true,
+      "configuredBy": "Alex Mercer",
+      "configuredAt": "2026-08-20T14:30:00Z",
+      "scopes": [
+        "repo",
+        "workflow",
+        "read:org"
+      ],
+      "lastSyncAt": "2026-10-13T06:50:00Z",
+      "recentErrors": 0,
+      "endpointUrl": "https://api.github.com"
+    },
+    {
+      "id": "int_jira",
+      "key": "jira",
+      "name": "Atlassian Jira Software",
+      "category": "ticketing",
+      "description": "Sprint planning, ticket triage, and automated incident escalation.",
+      "icon": "Layers",
+      "isConnected": false,
+      "authType": "oauth",
+      "credentialsConfigured": false,
+      "scopes": [
+        "read:jira-work",
+        "write:jira-work"
+      ],
+      "recentErrors": 0,
+      "endpointUrl": "https://api.atlassian.com"
+    },
+    {
+      "id": "int_postgres",
+      "key": "postgresql",
+      "name": "Enterprise PostgreSQL DB",
+      "category": "database",
+      "description": "Direct read-only warehouse connector for operational data enrichment.",
+      "icon": "Database",
+      "isConnected": true,
+      "authType": "api_key",
+      "credentialsConfigured": true,
+      "configuredBy": "David Kim",
+      "configuredAt": "2026-09-01T08:00:00Z",
+      "scopes": [
+        "readonly_replica",
+        "timeout_30s"
+      ],
+      "lastSyncAt": "2026-10-13T06:55:00Z",
+      "recentErrors": 0,
+      "endpointUrl": "postgres://readonly-replica.internal.nexusops:5432/warehouse"
+    },
+    {
+      "id": "int_salesforce",
+      "key": "salesforce",
+      "name": "Salesforce CRM",
+      "category": "crm",
+      "description": "Automated pipeline synchronization, lead qualification, and opportunity tracking.",
+      "icon": "Cloud",
+      "isConnected": false,
+      "authType": "oauth",
+      "credentialsConfigured": false,
+      "scopes": [
+        "api",
+        "refresh_token",
+        "offline_access"
+      ],
+      "recentErrors": 0,
+      "endpointUrl": "https://login.salesforce.com/services/oauth2"
+    },
+    {
+      "id": "int_webhooks",
+      "key": "webhooks",
+      "name": "NexusOps Inbound Webhooks",
+      "category": "communication",
+      "description": "HMAC-SHA256 signed inbound webhook listeners for external event triggers.",
+      "icon": "Webhook",
+      "isConnected": true,
+      "authType": "webhook",
+      "credentialsConfigured": true,
+      "configuredBy": "David Kim",
+      "configuredAt": "2026-01-20T12:00:00Z",
+      "scopes": [
+        "hmac_verification",
+        "replay_prevention"
+      ],
+      "lastSyncAt": "2026-10-13T06:59:00Z",
+      "recentErrors": 0,
+      "endpointUrl": "https://nexusops.internal/api/v1/webhooks"
+    }
+  ],
+  "workflows": [
+    {
+      "id": "wf_invoice_proc",
+      "name": "AP Invoice Extraction, Line-Item Reconciliation & Dual-Approval",
+      "slug": "ap-invoice-reconciliation",
+      "description": "End-to-end automation for incoming vendor invoices: parses PDF, reconciles against ERP PO lines, and stages ERP payment if verified.",
+      "category": "finance",
+      "version": "1.4.0",
+      "status": "published",
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "triggerType": "webhook",
+      "riskClassification": "critical",
+      "runCount": 842,
+      "successRate": 98.6,
+      "avgDurationMs": 3420,
+      "estimatedCostPerRun": 0.084,
+      "author": "Sarah Chen",
+      "createdAt": "2026-08-01T10:00:00Z",
+      "updatedAt": "2026-10-11T12:00:00Z",
+      "lastRunAt": "2026-10-13T06:12:00Z",
+      "nodes": [
+        {
+          "id": "node_trigger_1",
+          "type": "triggerNode",
+          "position": {
+            "x": 50,
+            "y": 180
+          },
+          "data": {
+            "label": "Inbound Invoice Event",
+            "category": "trigger",
+            "subType": "webhook",
+            "description": "Fired when vendor uploads invoice to billing portal or drops via S3",
+            "config": {
+              "topic": "invoices.incoming",
+              "schema": "s3_event"
+            },
+            "status": "completed"
+          }
+        },
+        {
+          "id": "node_extract_2",
+          "type": "aiNode",
+          "position": {
+            "x": 340,
+            "y": 180
+          },
+          "data": {
+            "label": "Extract Structured Fields",
+            "category": "ai",
+            "subType": "extraction",
+            "description": "Extracts vendor, PO#, line items, tax, and total using Schema Extractor",
+            "config": {
+              "agentId": "agent_extractor",
+              "schemaValidation": true
+            },
+            "status": "completed"
+          }
+        },
+        {
+          "id": "node_match_3",
+          "type": "dataNode",
+          "position": {
+            "x": 640,
+            "y": 180
+          },
+          "data": {
+            "label": "2-Way PO Match Engine",
+            "category": "data",
+            "subType": "db_query",
+            "description": "Queries ERP PostgreSQL to match invoice amounts against approved PO line items",
+            "config": {
+              "query": "SELECT * FROM purchase_orders WHERE po_number = :po"
+            },
+            "status": "completed"
+          }
+        },
+        {
+          "id": "node_branch_4",
+          "type": "logicNode",
+          "position": {
+            "x": 940,
+            "y": 180
+          },
+          "data": {
+            "label": "Variance Check (> $5,000)",
+            "category": "logic",
+            "subType": "if_else",
+            "description": "If variance is $0 and amount < $5,000 auto-approve; otherwise route to executive gate",
+            "config": {
+              "condition": "amount > 5000 || variance > 0"
+            },
+            "status": "completed"
+          }
+        },
+        {
+          "id": "node_approval_5",
+          "type": "logicNode",
+          "position": {
+            "x": 1240,
+            "y": 100
+          },
+          "data": {
+            "label": "Human Financial Approval Gate",
+            "category": "logic",
+            "subType": "approval_gate",
+            "description": "Requires Marcus Vance (Risk/Governance) or Sarah Chen to inspect invoice before payout",
+            "config": {
+              "role": "approver",
+              "timeoutHours": 24,
+              "riskLevel": "critical"
+            },
+            "requiresApproval": true,
+            "riskLevel": "critical",
+            "status": "waiting_approval"
+          }
+        },
+        {
+          "id": "node_disburse_6",
+          "type": "integrationNode",
+          "position": {
+            "x": 1540,
+            "y": 180
+          },
+          "data": {
+            "label": "Stage ERP Payment Order",
+            "category": "integration",
+            "subType": "payout",
+            "description": "Submits payment batch to Treasury ledger with idempotency token",
+            "config": {
+              "integration": "postgresql",
+              "autoConfirm": false
+            },
+            "status": "idle"
+          }
+        },
+        {
+          "id": "node_notify_7",
+          "type": "outputNode",
+          "position": {
+            "x": 1840,
+            "y": 180
+          },
+          "data": {
+            "label": "Slack Executive Notification",
+            "category": "output",
+            "subType": "slack",
+            "description": "Notifies #finance-ledger with payment reference and audit link",
+            "config": {
+              "channel": "#finance-ledger"
+            },
+            "status": "idle"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "id": "e1-2",
+          "source": "node_trigger_1",
+          "target": "node_extract_2",
+          "animated": true
+        },
+        {
+          "id": "e2-3",
+          "source": "node_extract_2",
+          "target": "node_match_3",
+          "animated": true
+        },
+        {
+          "id": "e3-4",
+          "source": "node_match_3",
+          "target": "node_branch_4",
+          "animated": true
+        },
+        {
+          "id": "e4-5",
+          "source": "node_branch_4",
+          "target": "node_approval_5",
+          "label": "Requires Sign-off"
+        },
+        {
+          "id": "e5-6",
+          "source": "node_approval_5",
+          "target": "node_disburse_6",
+          "label": "Approved"
+        },
+        {
+          "id": "e6-7",
+          "source": "node_disburse_6",
+          "target": "node_notify_7"
+        }
+      ]
+    },
+    {
+      "id": "wf_support_triage",
+      "name": "Customer Support SLA Triage & Knowledge-Grounded Resolution",
+      "slug": "support-triage-resolution",
+      "description": "Categorizes incoming support inquiries, fetches accurate knowledge base citations, and crafts grounded replies.",
+      "category": "support",
+      "version": "2.1.0",
+      "status": "published",
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "triggerType": "webhook",
+      "riskClassification": "medium",
+      "runCount": 2450,
+      "successRate": 99.2,
+      "avgDurationMs": 1840,
+      "estimatedCostPerRun": 0.038,
+      "author": "Alex Mercer",
+      "createdAt": "2026-07-20T14:00:00Z",
+      "updatedAt": "2026-10-12T16:00:00Z",
+      "lastRunAt": "2026-10-13T06:50:00Z",
+      "nodes": [
+        {
+          "id": "node_supp_1",
+          "type": "triggerNode",
+          "position": {
+            "x": 60,
+            "y": 200
+          },
+          "data": {
+            "label": "New Customer Ticket",
+            "category": "trigger",
+            "subType": "webhook",
+            "description": "Inbound ticket received from Zendesk/Intercom API",
+            "config": {},
+            "status": "completed"
+          }
+        },
+        {
+          "id": "node_supp_2",
+          "type": "aiNode",
+          "position": {
+            "x": 360,
+            "y": 200
+          },
+          "data": {
+            "label": "Semantic Classifier & Sentiment",
+            "category": "ai",
+            "subType": "classification",
+            "description": "Identifies urgency tier, sentiment, and affected product module",
+            "config": {
+              "agentId": "agent_analyst"
+            },
+            "status": "completed"
+          }
+        },
+        {
+          "id": "node_supp_3",
+          "type": "aiNode",
+          "position": {
+            "x": 680,
+            "y": 200
+          },
+          "data": {
+            "label": "Enterprise RAG Retrieval",
+            "category": "ai",
+            "subType": "rag",
+            "description": "Retrieves verified documentation chunks and troubleshooting playbooks",
+            "config": {
+              "agentId": "agent_researcher"
+            },
+            "status": "completed"
+          }
+        },
+        {
+          "id": "node_supp_4",
+          "type": "aiNode",
+          "position": {
+            "x": 1000,
+            "y": 200
+          },
+          "data": {
+            "label": "Adversarial Reviewer Guardrail",
+            "category": "ai",
+            "subType": "review",
+            "description": "Checks reply for factual correctness against retrieved sources",
+            "config": {
+              "agentId": "agent_reviewer"
+            },
+            "status": "completed"
+          }
+        },
+        {
+          "id": "node_supp_5",
+          "type": "outputNode",
+          "position": {
+            "x": 1320,
+            "y": 200
+          },
+          "data": {
+            "label": "Dispatch Response & Sync CRM",
+            "category": "output",
+            "subType": "reply",
+            "description": "Sends drafted solution to client and updates ticket thread",
+            "config": {},
+            "status": "completed"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "id": "es1-2",
+          "source": "node_supp_1",
+          "target": "node_supp_2"
+        },
+        {
+          "id": "es2-3",
+          "source": "node_supp_2",
+          "target": "node_supp_3"
+        },
+        {
+          "id": "es3-4",
+          "source": "node_supp_3",
+          "target": "node_supp_4"
+        },
+        {
+          "id": "es4-5",
+          "source": "node_supp_4",
+          "target": "node_supp_5"
+        }
+      ]
+    },
+    {
+      "id": "wf_incident_postmortem",
+      "name": "SecOps Critical Incident Auto-Containment & Briefing",
+      "slug": "secops-incident-containment",
+      "description": "Detects unauthorized credential reuse, locks compromised tokens, creates emergency war room, and drafts executive briefing.",
+      "category": "engineering",
+      "version": "1.1.0",
+      "status": "published",
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "triggerType": "event",
+      "riskClassification": "critical",
+      "runCount": 88,
+      "successRate": 100,
+      "avgDurationMs": 4100,
+      "estimatedCostPerRun": 0.12,
+      "author": "David Kim",
+      "createdAt": "2026-09-05T11:00:00Z",
+      "updatedAt": "2026-10-10T18:00:00Z",
+      "lastRunAt": "2026-10-12T22:30:00Z",
+      "nodes": [],
+      "edges": []
+    }
+  ],
+  "workflowRuns": [
+    {
+      "id": "run_991823",
+      "workflowId": "wf_invoice_proc",
+      "workflowName": "AP Invoice Extraction, Line-Item Reconciliation",
+      "workflowVersion": "1.4.0",
+      "triggerSource": "webhook",
+      "status": "completed",
+      "mode": "production",
+      "startTime": "2026-10-13T06:12:00Z",
+      "initiatedBy": "Inbound Billing Webhook (#EVT-4819)",
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "tokensUsed": 4280,
+      "estimatedCost": 0.084,
+      "currentStepIndex": 7,
+      "totalSteps": 7,
+      "nodeRuns": [
+        {
+          "id": "nrun_1",
+          "nodeId": "node_trigger_1",
+          "nodeLabel": "Inbound Invoice Event",
+          "category": "trigger",
+          "status": "completed",
+          "startedAt": "2026-10-13T06:12:00Z",
+          "endedAt": "2026-10-13T06:12:01Z",
+          "durationMs": 120,
+          "outputPayload": {
+            "fileUrl": "s3://acme-invoices/2026/10/datadog_inv_89412.pdf",
+            "sizeKb": 892
+          }
+        },
+        {
+          "id": "nrun_2",
+          "nodeId": "node_extract_2",
+          "nodeLabel": "Extract Structured Fields",
+          "category": "ai",
+          "status": "completed",
+          "startedAt": "2026-10-13T06:12:01Z",
+          "endedAt": "2026-10-13T06:12:03Z",
+          "durationMs": 1840,
+          "inputPayload": {
+            "fileUrl": "s3://acme-invoices/2026/10/datadog_inv_89412.pdf"
+          },
+          "outputPayload": {
+            "vendor": "Datadog Cloud Monitoring Inc.",
+            "po": "PO-88219",
+            "total": 14850,
+            "lineItems": 4
+          }
+        },
+        {
+          "id": "nrun_3",
+          "nodeId": "node_match_3",
+          "nodeLabel": "2-Way PO Match Engine",
+          "category": "data",
+          "status": "completed",
+          "startedAt": "2026-10-13T06:12:03Z",
+          "endedAt": "2026-10-13T06:12:04Z",
+          "durationMs": 420,
+          "outputPayload": {
+            "matched": true,
+            "varianceUsd": 0,
+            "poRemainingBudget": 45000
+          }
+        },
+        {
+          "id": "nrun_4",
+          "nodeId": "node_branch_4",
+          "nodeLabel": "Variance Check (> $5,000)",
+          "category": "logic",
+          "status": "completed",
+          "startedAt": "2026-10-13T06:12:04Z",
+          "endedAt": "2026-10-13T06:12:04Z",
+          "durationMs": 15,
+          "outputPayload": {
+            "route": "high_value_gate",
+            "reason": "Total $14,850.00 > $5,000.00 threshold"
+          }
+        },
+        {
+          "id": "nrun_5",
+          "nodeId": "node_approval_5",
+          "nodeLabel": "Human Financial Approval Gate",
+          "category": "logic",
+          "status": "completed",
+          "startedAt": "2026-10-13T06:12:04Z",
+          "outputPayload": {
+            "approvalRequestId": "appr_inv_8901",
+            "requiredRole": "approver",
+            "approvalStatus": "approved",
+            "authorizedBy": "Marcus Vance",
+            "authorizationTimestamp": "2026-10-13T07:32:38.204Z"
+          },
+          "endedAt": "2026-10-13T07:32:38.204Z"
+        },
+        {
+          "id": "nrun_6",
+          "nodeId": "node_disburse_6",
+          "nodeLabel": "Stage ERP Payment Order",
+          "category": "integration",
+          "status": "pending",
+          "startedAt": ""
+        },
+        {
+          "id": "nrun_7",
+          "nodeId": "node_notify_7",
+          "nodeLabel": "Slack Executive Notification",
+          "category": "output",
+          "status": "pending",
+          "startedAt": ""
+        },
+        {
+          "id": "nrun_run_991823_4",
+          "nodeId": "node_approval_5",
+          "nodeLabel": "Human Financial Approval Gate",
+          "category": "logic",
+          "status": "completed",
+          "startedAt": "2026-10-13T07:32:38.204Z",
+          "endedAt": "2026-10-13T07:32:38.204Z",
+          "durationMs": 250,
+          "outputPayload": {
+            "branchSelected": "primary_route",
+            "expressionEvaluated": true,
+            "conditionResult": "PASS"
+          }
+        },
+        {
+          "id": "nrun_run_991823_5",
+          "nodeId": "node_disburse_6",
+          "nodeLabel": "Stage ERP Payment Order",
+          "category": "integration",
+          "status": "completed",
+          "startedAt": "2026-10-13T07:32:38.204Z",
+          "endedAt": "2026-10-13T07:32:38.204Z",
+          "durationMs": 250,
+          "outputPayload": {
+            "targetSystem": "payout",
+            "status": "HTTP_201_CREATED",
+            "responseHeaders": {
+              "x-nexusops-idempotency": "enforced"
+            }
+          }
+        },
+        {
+          "id": "nrun_run_991823_6",
+          "nodeId": "node_notify_7",
+          "nodeLabel": "Slack Executive Notification",
+          "category": "output",
+          "status": "completed",
+          "startedAt": "2026-10-13T07:32:38.204Z",
+          "endedAt": "2026-10-13T07:32:38.204Z",
+          "durationMs": 250,
+          "outputPayload": {
+            "status": "success",
+            "dispatchedAt": "2026-10-13T07:32:38.204Z",
+            "recipient": "#operations-feed"
+          }
+        }
+      ],
+      "endTime": "2026-10-13T07:32:38.204Z"
+    },
+    {
+      "id": "run_991815",
+      "workflowId": "wf_support_triage",
+      "workflowName": "Customer Support SLA Triage",
+      "workflowVersion": "2.1.0",
+      "triggerSource": "webhook",
+      "status": "completed",
+      "mode": "production",
+      "startTime": "2026-10-13T05:40:00Z",
+      "endTime": "2026-10-13T05:40:02Z",
+      "durationMs": 1820,
+      "initiatedBy": "Zendesk Inbound Webhook (#TKT-99124)",
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "tokensUsed": 2190,
+      "estimatedCost": 0.038,
+      "currentStepIndex": 5,
+      "totalSteps": 5,
+      "nodeRuns": [
+        {
+          "id": "nsrun_1",
+          "nodeId": "node_supp_1",
+          "nodeLabel": "New Customer Ticket",
+          "category": "trigger",
+          "status": "completed",
+          "startedAt": "2026-10-13T05:40:00Z",
+          "endedAt": "2026-10-13T05:40:00Z",
+          "durationMs": 90
+        },
+        {
+          "id": "nsrun_2",
+          "nodeId": "node_supp_2",
+          "nodeLabel": "Semantic Classifier & Sentiment",
+          "category": "ai",
+          "status": "completed",
+          "startedAt": "2026-10-13T05:40:00Z",
+          "endedAt": "2026-10-13T05:40:01Z",
+          "durationMs": 740
+        },
+        {
+          "id": "nsrun_3",
+          "nodeId": "node_supp_3",
+          "nodeLabel": "Enterprise RAG Retrieval",
+          "category": "ai",
+          "status": "completed",
+          "startedAt": "2026-10-13T05:40:01Z",
+          "endedAt": "2026-10-13T05:40:01Z",
+          "durationMs": 410
+        },
+        {
+          "id": "nsrun_4",
+          "nodeId": "node_supp_4",
+          "nodeLabel": "Adversarial Reviewer Guardrail",
+          "category": "ai",
+          "status": "completed",
+          "startedAt": "2026-10-13T05:40:01Z",
+          "endedAt": "2026-10-13T05:40:02Z",
+          "durationMs": 450
+        },
+        {
+          "id": "nsrun_5",
+          "nodeId": "node_supp_5",
+          "nodeLabel": "Dispatch Response & Sync CRM",
+          "category": "output",
+          "status": "completed",
+          "startedAt": "2026-10-13T05:40:02Z",
+          "endedAt": "2026-10-13T05:40:02Z",
+          "durationMs": 130
+        }
+      ]
+    },
+    {
+      "id": "run_991800",
+      "workflowId": "wf_incident_postmortem",
+      "workflowName": "SecOps Critical Incident Auto-Containment",
+      "workflowVersion": "1.1.0",
+      "triggerSource": "event",
+      "status": "completed",
+      "mode": "production",
+      "startTime": "2026-10-12T22:30:00Z",
+      "endTime": "2026-10-12T22:30:04Z",
+      "durationMs": 4120,
+      "initiatedBy": "GuardDuty High Severity Security Event",
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "tokensUsed": 6240,
+      "estimatedCost": 0.12,
+      "currentStepIndex": 6,
+      "totalSteps": 6,
+      "nodeRuns": []
+    }
+  ],
+  "approvals": [
+    {
+      "id": "appr_inv_8901",
+      "runId": "run_991823",
+      "workflowId": "wf_invoice_proc",
+      "workflowName": "AP Invoice Extraction, Line-Item Reconciliation",
+      "nodeId": "node_approval_5",
+      "requestorName": "Nexus FinOps Orchestrator (Autonomous Agent)",
+      "riskLevel": "critical",
+      "targetSystem": "Treasury ERP Ledger / Stripe Treasury",
+      "actionType": "DISBURSE_VENDOR_PAYMENT",
+      "parameters": {
+        "vendor": "Datadog Cloud Monitoring Inc.",
+        "invoiceNumber": "INV-2026-89412",
+        "amountUsd": 14850,
+        "budgetCategory": "Infrastructure Observability",
+        "dueDays": 15,
+        "poMatchConfidence": 0.994
+      },
+      "reason": "Invoice exceeds the automatic approval threshold ($5,000.00). Requires governance sign-off.",
+      "supportingEvidence": "Matched Purchase Order #PO-88219 signed by VP of Eng Sarah Chen on 2026-09-15.",
+      "expectedSideEffects": "Debit of $14,850.00 from primary operations account. Idempotency key locked.",
+      "status": "approved",
+      "requestedAt": "2026-10-13T06:12:15Z",
+      "expiresAt": "2026-10-14T06:12:15Z",
+      "resolvedAt": "2026-10-13T07:32:38.201Z",
+      "resolvedBy": "Marcus Vance",
+      "decisionComment": "Recorded by Marcus Vance (Risk/Governance)",
+      "executionResult": "Authorization token issued. Side effect dispatched."
+    },
+    {
+      "id": "appr_gh_7712",
+      "runId": "run_991804",
+      "workflowId": "wf_incident_postmortem",
+      "workflowName": "SecOps Critical Incident Auto-Containment",
+      "nodeId": "node_lock_sec",
+      "requestorName": "Governance & Policy Sentry",
+      "riskLevel": "high",
+      "targetSystem": "GitHub Enterprise / AWS IAM",
+      "actionType": "REVOKE_STALE_ACCESS_KEYS",
+      "parameters": {
+        "developerId": "usr_contractor_88",
+        "keysToRevoke": [
+          "AKIA-PROD-99812-STALE"
+        ],
+        "justification": "Key unused for > 90 days following contractor offboarding policy."
+      },
+      "reason": "High-risk security action modifying live production IAM credentials.",
+      "supportingEvidence": "CloudTrail log analysis indicates 94 days since last active API signature.",
+      "expectedSideEffects": "Immediate invalidation of API key across all staging and production services.",
+      "status": "pending",
+      "requestedAt": "2026-10-13T05:30:00Z",
+      "expiresAt": "2026-10-13T17:30:00Z"
+    },
+    {
+      "id": "appr_crm_3341",
+      "runId": "run_991799",
+      "workflowId": "wf_support_triage",
+      "workflowName": "Enterprise Lead SLA Enrichment",
+      "nodeId": "node_update_crm",
+      "requestorName": "Safe Tool Executor",
+      "riskLevel": "medium",
+      "targetSystem": "Salesforce Enterprise CRM",
+      "actionType": "BULK_UPDATE_LEAD_STAGE",
+      "parameters": {
+        "accountCount": 42,
+        "newStage": "SQL - High Intent",
+        "enrichmentSource": "Clearbit + 10-K Filings RAG"
+      },
+      "reason": "Bulk modification affecting 42 enterprise pipeline records.",
+      "supportingEvidence": "AI Analyst confirmed all 42 domains have active hiring headcount in ML engineering.",
+      "expectedSideEffects": "Updates Salesforce lead status field; triggers automated BDR outreach sequences.",
+      "status": "approved",
+      "requestedAt": "2026-10-12T19:00:00Z",
+      "expiresAt": "2026-10-13T19:00:00Z",
+      "resolvedAt": "2026-10-12T19:42:10Z",
+      "resolvedBy": "Marcus Vance",
+      "decisionComment": "Verified criteria met. Approved for BDR sequence trigger.",
+      "executionResult": "Successfully updated 42 leads in Salesforce API."
+    }
+  ],
+  "knowledgeDocs": [
+    {
+      "id": "doc_sec_2026",
+      "title": "Acme Enterprise Security & Zero-Trust Governance Standard 2026",
+      "fileType": "pdf",
+      "sizeKb": 1420,
+      "chunkCount": 84,
+      "status": "indexed",
+      "uploadedAt": "2026-09-01T10:00:00Z",
+      "uploadedBy": "Marcus Vance",
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "tags": [
+        "Security",
+        "Compliance",
+        "SOC2",
+        "Zero-Trust"
+      ],
+      "sampleExcerpt": "All autonomous agent workflows performing monetary or credential adjustments require dual-human authorization under Principle 4.2. Stored secrets must use envelope encryption with hardware security modules."
+    },
+    {
+      "id": "doc_procure_guidelines",
+      "title": "Global Vendor Procurement & AP Invoice Matching Policy v5",
+      "fileType": "pdf",
+      "sizeKb": 890,
+      "chunkCount": 52,
+      "status": "indexed",
+      "uploadedAt": "2026-08-15T14:30:00Z",
+      "uploadedBy": "Sarah Chen",
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "tags": [
+        "Finance",
+        "Procurement",
+        "Invoices",
+        "ERP"
+      ],
+      "sampleExcerpt": "Invoices up to $5,000 USD matching an authorized PO within 0.0% variance may proceed to automated settlement. Any line item discrepancy exceeding $0.05 requires manual controller triage."
+    },
+    {
+      "id": "doc_sla_playbook",
+      "title": "Customer Operations Tier-1 Troubleshooting & Escalation Matrix",
+      "fileType": "markdown",
+      "sizeKb": 340,
+      "chunkCount": 28,
+      "status": "indexed",
+      "uploadedAt": "2026-09-20T09:15:00Z",
+      "uploadedBy": "Alex Mercer",
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "tags": [
+        "Support",
+        "Runbooks",
+        "SLA",
+        "Customer Success"
+      ],
+      "sampleExcerpt": "P0 incidents (platform outage, data integrity compromise) require response within 15 minutes. Agents must immediately post to #incident-command and page on-call SRE via PagerDuty webhook."
+    },
+    {
+      "id": "doc_eng_rfc",
+      "title": "NexusOps Multi-Agent Protocol Specification RFC-104",
+      "fileType": "markdown",
+      "sizeKb": 620,
+      "chunkCount": 46,
+      "status": "indexed",
+      "uploadedAt": "2026-10-01T11:00:00Z",
+      "uploadedBy": "Alex Mercer",
+      "orgId": "org_acme",
+      "workspaceId": "ws_prod",
+      "tags": [
+        "Architecture",
+        "Agents",
+        "RFC",
+        "Orchestration"
+      ],
+      "sampleExcerpt": "Agents communicate strictly via typed JSON schemas. Chain-of-thought scratchpads are confidential and strictly bounded to prevent context pollution and indirect prompt injection."
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "audit_1791876758205_570",
+      "timestamp": "2026-10-13T07:32:38.205Z",
+      "actor": {
+        "id": "usr_marcus",
+        "name": "Marcus Vance",
+        "email": "marcus.vance@acme.corp",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150",
+        "role": "approver",
+        "orgId": "org_acme",
+        "workspaceId": "ws_prod",
+        "department": "Risk & Governance"
+      },
+      "action": "WORKFLOW_RESUMED_AND_COMPLETED",
+      "resourceType": "workflow",
+      "resourceId": "wf_invoice_proc",
+      "resourceName": "AP Invoice Extraction, Line-Item Reconciliation & Dual-Approval",
+      "status": "success",
+      "ipAddress": "127.0.0.1",
+      "details": {
+        "runId": "run_991823",
+        "approvalId": "appr_inv_8901"
+      },
+      "correlationId": "corr_1791876758205"
+    },
+    {
+      "id": "audit_1791876758201_500",
+      "timestamp": "2026-10-13T07:32:38.201Z",
+      "actor": {
+        "id": "usr_marcus",
+        "name": "Marcus Vance",
+        "email": "marcus.vance@acme.corp",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150",
+        "role": "approver",
+        "orgId": "org_acme",
+        "workspaceId": "ws_prod",
+        "department": "Risk & Governance"
+      },
+      "action": "APPROVAL_GRANTED",
+      "resourceType": "approval",
+      "resourceId": "appr_inv_8901",
+      "resourceName": "AP Invoice Extraction, Line-Item Reconciliation",
+      "status": "success",
+      "ipAddress": "127.0.0.1",
+      "details": {
+        "actionType": "DISBURSE_VENDOR_PAYMENT",
+        "targetSystem": "Treasury ERP Ledger / Stripe Treasury",
+        "comment": "Recorded by Marcus Vance (Risk/Governance)"
+      },
+      "correlationId": "corr_1791876758201"
+    },
+    {
+      "id": "audit_88192",
+      "timestamp": "2026-10-13T06:12:15Z",
+      "actor": {
+        "id": "usr_alex",
+        "name": "Alex Mercer",
+        "email": "alex.mercer@acme.corp",
+        "role": "ai_architect"
+      },
+      "action": "APPROVAL_REQUEST_CREATED",
+      "resourceType": "approval",
+      "resourceId": "appr_inv_8901",
+      "resourceName": "AP Invoice Extraction, Line-Item Reconciliation",
+      "status": "warning",
+      "ipAddress": "10.240.0.12",
+      "details": {
+        "amount": 14850,
+        "riskTier": "critical",
+        "vendor": "Datadog"
+      },
+      "correlationId": "corr_inv_991823"
+    },
+    {
+      "id": "audit_88191",
+      "timestamp": "2026-10-13T06:10:00Z",
+      "actor": {
+        "id": "usr_david",
+        "name": "David Kim",
+        "email": "david.kim@acme.corp",
+        "role": "platform_admin"
+      },
+      "action": "INTEGRATION_TEST_SUCCESS",
+      "resourceType": "integration",
+      "resourceId": "int_slack",
+      "resourceName": "Slack Enterprise Grid",
+      "status": "success",
+      "ipAddress": "10.240.0.18",
+      "details": {
+        "scopesVerified": [
+          "chat:write",
+          "reactions:write"
+        ],
+        "latencyMs": 142
+      },
+      "correlationId": "corr_test_00192"
+    },
+    {
+      "id": "audit_88190",
+      "timestamp": "2026-10-12T19:42:10Z",
+      "actor": {
+        "id": "usr_marcus",
+        "name": "Marcus Vance",
+        "email": "marcus.vance@acme.corp",
+        "role": "approver"
+      },
+      "action": "APPROVAL_DECISION_RECORDED",
+      "resourceType": "approval",
+      "resourceId": "appr_crm_3341",
+      "resourceName": "Enterprise Lead SLA Enrichment",
+      "status": "success",
+      "ipAddress": "10.240.0.4",
+      "details": {
+        "decision": "approved",
+        "comment": "Verified criteria met. Approved for BDR sequence trigger."
+      },
+      "correlationId": "corr_crm_88102"
+    },
+    {
+      "id": "audit_88189",
+      "timestamp": "2026-10-12T16:00:00Z",
+      "actor": {
+        "id": "usr_alex",
+        "name": "Alex Mercer",
+        "email": "alex.mercer@acme.corp",
+        "role": "ai_architect"
+      },
+      "action": "WORKFLOW_VERSION_PUBLISHED",
+      "resourceType": "workflow",
+      "resourceId": "wf_support_triage",
+      "resourceName": "Customer Support SLA Triage",
+      "status": "success",
+      "ipAddress": "10.240.0.12",
+      "details": {
+        "previousVersion": "2.0.4",
+        "newVersion": "2.1.0",
+        "nodesCount": 5
+      },
+      "correlationId": "corr_pub_44120"
+    },
+    {
+      "id": "audit_88188",
+      "timestamp": "2026-10-12T14:15:00Z",
+      "actor": {
+        "id": "usr_sarah",
+        "name": "Sarah Chen",
+        "email": "sarah.chen@acme.corp",
+        "role": "org_owner"
+      },
+      "action": "BUDGET_THRESHOLD_ADJUSTED",
+      "resourceType": "secret",
+      "resourceId": "budget_acme",
+      "resourceName": "Monthly AI Budget Limit",
+      "status": "success",
+      "ipAddress": "10.240.0.2",
+      "details": {
+        "previousBudget": 20000,
+        "newBudget": 25000,
+        "currency": "USD"
+      },
+      "correlationId": "corr_bgt_1192"
+    }
+  ],
+  "schedules": [
+    {
+      "id": "sch_morning_triage",
+      "workflowId": "wf_support_triage",
+      "workflowName": "Customer Support SLA Triage",
+      "cronExpression": "0 8 * * 1-5",
+      "humanSchedule": "Every weekday at 08:00 AM UTC",
+      "timezone": "UTC",
+      "isActive": true,
+      "nextRun": "2026-10-14T08:00:00Z",
+      "lastRun": "2026-10-13T08:00:00Z",
+      "lastRunStatus": "success",
+      "concurrencyLimit": 2
+    },
+    {
+      "id": "sch_nightly_reconciliation",
+      "workflowId": "wf_invoice_proc",
+      "workflowName": "AP Invoice Extraction & 2-Way Match",
+      "cronExpression": "0 2 * * *",
+      "humanSchedule": "Every night at 02:00 AM UTC",
+      "timezone": "UTC",
+      "isActive": true,
+      "nextRun": "2026-10-14T02:00:00Z",
+      "lastRun": "2026-10-13T02:00:00Z",
+      "lastRunStatus": "success",
+      "concurrencyLimit": 1
+    },
+    {
+      "id": "sch_hourly_secops",
+      "workflowId": "wf_incident_postmortem",
+      "workflowName": "SecOps Critical Incident Auto-Containment",
+      "cronExpression": "0 * * * *",
+      "humanSchedule": "Top of every hour (00 min)",
+      "timezone": "UTC",
+      "isActive": true,
+      "nextRun": "2026-10-13T13:00:00Z",
+      "lastRun": "2026-10-13T12:00:00Z",
+      "lastRunStatus": "success",
+      "concurrencyLimit": 5
+    }
+  ],
+  "evaluations": [
+    {
+      "id": "eval_ds_extractor",
+      "name": "Invoice Extraction Benchmark Suite (Gold Standard)",
+      "description": "150 synthetic and anonymized PDF invoices testing VAT, multi-currency, and nested line items.",
+      "agentRole": "extractor",
+      "testCaseCount": 150,
+      "lastRunScore": 99.4,
+      "lastEvaluatedAt": "2026-10-12T18:00:00Z",
+      "benchmarkTargetScore": 98,
+      "releaseGatePolicy": "strict"
+    },
+    {
+      "id": "eval_ds_reviewer",
+      "name": "Prompt Injection & PII Leak Defense Suite",
+      "description": "300 adversarial jailbreaks, system instruction override attempts, and leaked API key patterns.",
+      "agentRole": "reviewer",
+      "testCaseCount": 300,
+      "lastRunScore": 98.9,
+      "lastEvaluatedAt": "2026-10-12T11:45:00Z",
+      "benchmarkTargetScore": 98.5,
+      "releaseGatePolicy": "strict"
+    },
+    {
+      "id": "eval_ds_researcher",
+      "name": "Enterprise Knowledge Grounding & Citation Veracity",
+      "description": "80 multi-hop queries evaluating exact chunk citations and refusal on missing evidence.",
+      "agentRole": "researcher",
+      "testCaseCount": 80,
+      "lastRunScore": 99.1,
+      "lastEvaluatedAt": "2026-10-11T09:15:00Z",
+      "benchmarkTargetScore": 95,
+      "releaseGatePolicy": "strict"
+    }
+  ],
+  "humanReviews": [
+    {
+      "id": "rev_inv_4401",
+      "runId": "run_991823",
+      "workflowName": "AP Invoice Extraction & 2-Way Match",
+      "category": "invoice_extraction",
+      "confidenceScore": 0.81,
+      "inputContext": {
+        "rawVendorText": "Datadog Cloud Netherlands B.V. (Chamber of Commerce 68291)",
+        "detectedCurrency": "EUR / USD dual conversion"
+      },
+      "aiGeneratedDraft": {
+        "matchedVendor": "Datadog Cloud Monitoring Inc.",
+        "taxExemptReason": "EU Intra-Community reverse charge applies",
+        "calculatedTotalUsd": 14850
+      },
+      "assignedTo": "Marcus Vance",
+      "priority": "high",
+      "status": "pending",
+      "submittedAt": "2026-10-13T06:12:00Z"
+    },
+    {
+      "id": "rev_supp_9912",
+      "runId": "run_991780",
+      "workflowName": "Customer Support SLA Triage",
+      "category": "customer_reply",
+      "confidenceScore": 0.84,
+      "inputContext": {
+        "ticketSubject": "SSO SAML Assertion Failure with Okta Provider",
+        "customerTier": "Enterprise Fortune 50"
+      },
+      "aiGeneratedDraft": {
+        "suggestedFix": "Re-upload Okta X.509 signing certificate into NexusOps SSO Settings.",
+        "citationDocument": "Acme Enterprise Security Standard 2026"
+      },
+      "assignedTo": "Alex Mercer",
+      "priority": "urgent",
+      "status": "pending",
+      "submittedAt": "2026-10-13T04:50:00Z"
+    }
+  ],
+  "templates": [
+    {
+      "id": "tpl_invoice_match",
+      "title": "Autonomous AP Invoice Matching & Dual-Authorization",
+      "slug": "autonomous-ap-invoice",
+      "department": "Finance",
+      "description": "Extracts invoices, validates purchase order line items against PostgreSQL ERP, and requires human approval for payments > $5k.",
+      "riskTier": "critical",
+      "nodesCount": 7,
+      "requiredIntegrations": [
+        "PostgreSQL",
+        "Slack"
+      ],
+      "complexity": "Enterprise",
+      "downloadsCount": 1240,
+      "estimatedHoursSaved": 340,
+      "tags": [
+        "Invoices",
+        "ERP",
+        "Approvals",
+        "Finance"
+      ]
+    },
+    {
+      "id": "tpl_support_triage",
+      "title": "Zero-Hallucination Support Copilot with Source Grounding",
+      "slug": "support-grounded-copilot",
+      "department": "Support",
+      "description": "Categorizes incoming tickets, performs semantic search over indexed support documentation, and drafts verified responses.",
+      "riskTier": "medium",
+      "nodesCount": 5,
+      "requiredIntegrations": [
+        "Slack",
+        "Zendesk"
+      ],
+      "complexity": "Intermediate",
+      "downloadsCount": 3100,
+      "estimatedHoursSaved": 520,
+      "tags": [
+        "RAG",
+        "Support",
+        "NLP",
+        "Citations"
+      ]
+    },
+    {
+      "id": "tpl_secops_incident",
+      "title": "SecOps Credential Leak Auto-Containment & Incident War Room",
+      "slug": "secops-leak-containment",
+      "department": "Engineering",
+      "description": "Monitors public commits & logs for leaked tokens, revokes compromised credentials, and generates postmortem reports.",
+      "riskTier": "critical",
+      "nodesCount": 8,
+      "requiredIntegrations": [
+        "GitHub",
+        "Slack",
+        "AWS IAM"
+      ],
+      "complexity": "Enterprise",
+      "downloadsCount": 940,
+      "estimatedHoursSaved": 180,
+      "tags": [
+        "SecOps",
+        "Zero-Trust",
+        "Incident Response"
+      ]
+    },
+    {
+      "id": "tpl_hr_onboarding",
+      "title": "Zero-Touch Employee Onboarding & Identity Provisioning",
+      "slug": "hr-zero-touch-onboarding",
+      "department": "HR",
+      "description": "Orchestrates identity creation, sends welcome packs, assigns mandatory training modules, and sets up 30-day manager checkpoints.",
+      "riskTier": "medium",
+      "nodesCount": 6,
+      "requiredIntegrations": [
+        "Slack",
+        "Google Workspace"
+      ],
+      "complexity": "Intermediate",
+      "downloadsCount": 1680,
+      "estimatedHoursSaved": 260,
+      "tags": [
+        "HR",
+        "Onboarding",
+        "Identity"
+      ]
+    },
+    {
+      "id": "tpl_lead_enrich",
+      "title": "High-Value Enterprise Lead Enrichment & Executive Briefing",
+      "slug": "lead-enrichment-briefing",
+      "department": "Sales",
+      "description": "Enriches inbound sales inquiries with company funding data, tech stack detection, and generates executive 1-pagers for AEs.",
+      "riskTier": "low",
+      "nodesCount": 4,
+      "requiredIntegrations": [
+        "Salesforce",
+        "Slack"
+      ],
+      "complexity": "Beginner",
+      "downloadsCount": 2200,
+      "estimatedHoursSaved": 210,
+      "tags": [
+        "Sales",
+        "CRM",
+        "Enrichment"
+      ]
+    },
+    {
+      "id": "tpl_ops_sla",
+      "title": "Cross-Department SLA Health & Anomaly Detector",
+      "slug": "cross-department-sla-health",
+      "department": "Operations",
+      "description": "Continuously monitors execution queues, flags approaching SLA breaches, and rebalances worker agent quotas.",
+      "riskTier": "medium",
+      "nodesCount": 5,
+      "requiredIntegrations": [
+        "PostgreSQL",
+        "Slack"
+      ],
+      "complexity": "Intermediate",
+      "downloadsCount": 890,
+      "estimatedHoursSaved": 140,
+      "tags": [
+        "Operations",
+        "SLA",
+        "Monitoring"
+      ]
+    }
+  ],
+  "budget": {
+    "monthlyLimit": 25000,
+    "currentSpend": 1482.4,
+    "currency": "USD",
+    "warningThresholdPercent": 80,
+    "hardStopEnabled": true
+  }
+}
